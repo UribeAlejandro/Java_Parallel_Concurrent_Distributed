@@ -1,16 +1,16 @@
 package sequential;
 
 
-public class SequentialArraySum {
+public class ArraySum {
     private final double[] array;
     private double sum = 0;
-
-    public SequentialArraySum(double[] array) {
+    public ArraySum(double[] array) {
         this.array = array;
     }
-    public void computeSum() {
+    public double computeSum() {
         for (double v : array) {
             sum += v;
         }
+        return sum;
     }
 }
