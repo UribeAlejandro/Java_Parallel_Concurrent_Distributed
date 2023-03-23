@@ -1,13 +1,13 @@
-package par_conc_dis;
+package parallel.concurrent.distributed;
 
-import par_conc_dis.sequential.SequentialStudentAnalytics;
-import par_conc_dis.utils.Helpers;
-import par_conc_dis.utils.Student;
-import par_conc_dis.functional.FunctionalStudentAnalytics;
-import par_conc_dis.parallel.ManyTaskArraySum;
-import par_conc_dis.sequential.ArraySum;
-import par_conc_dis.parallel.ActionArraySum;
-import par_conc_dis.parallel.TaskArraySum;
+import parallel.concurrent.distributed.sequential.SequentialStudentAnalytics;
+import parallel.concurrent.distributed.utils.Helpers;
+import parallel.concurrent.distributed.utils.Student;
+import parallel.concurrent.distributed.functional.FunctionalStudentAnalytics;
+import parallel.concurrent.distributed.parallel.ManyTaskArraySum;
+import parallel.concurrent.distributed.sequential.ArraySum;
+import parallel.concurrent.distributed.parallel.ActionArraySum;
+import parallel.concurrent.distributed.parallel.TaskArraySum;
 
 import java.util.stream.LongStream;
 
@@ -20,15 +20,15 @@ public class Main {
     long finishTime;
     double real;
     double ans;
+    int numTasks = 8;
 
     double[] arr = LongStream.range(-98765432, 23456789).mapToDouble(i -> i).toArray();
 
-    ForkJoinPool pool = new ForkJoinPool(2);
+    ForkJoinPool pool = new ForkJoinPool(numTasks);
 
     startTime = System.nanoTime();
     ArraySum sSum = new ArraySum(arr);
     real = sSum.computeSum();
-    System.out.println(real);
     finishTime = System.nanoTime();
     Helpers.printResults(startTime, finishTime, "Sequential Sum");
 
@@ -47,7 +47,6 @@ public class Main {
     assert ans == real;
 
     startTime = System.nanoTime();
-    int numTasks = 36;
     ans = ManyTaskArraySum.parallelManyTaskParallelArraySum(arr, numTasks);
     finishTime = System.nanoTime();
     Helpers.printResults(startTime, finishTime, "Task - Parallel Sum " + numTasks + " cores");
@@ -62,7 +61,8 @@ public class Main {
     String s_ans;
     int i_real;
     int i_ans;
-    System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "8");
+    System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism",
+        String.valueOf(numTasks));
     Student[] students = Helpers.generateStudentData();
 
     FunctionalStudentAnalytics funcAnalytics = new FunctionalStudentAnalytics();

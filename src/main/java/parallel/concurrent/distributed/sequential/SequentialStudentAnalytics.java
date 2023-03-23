@@ -1,6 +1,6 @@
-package par_conc_dis.sequential;
+package parallel.concurrent.distributed.sequential;
 
-import par_conc_dis.utils.Student;
+import parallel.concurrent.distributed.utils.Student;
 
 import java.util.ArrayList;
 import java.util.HashMap;

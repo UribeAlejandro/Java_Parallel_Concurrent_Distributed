@@ -1,4 +1,4 @@
-package par_conc_dis.utils;
+package parallel.concurrent.distributed.utils;
 
 public final class Student {
 

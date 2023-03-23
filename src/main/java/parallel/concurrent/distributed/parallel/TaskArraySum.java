@@ -1,4 +1,4 @@
-package par_conc_dis.parallel;
+package parallel.concurrent.distributed.parallel;
 
 import java.util.concurrent.RecursiveTask;
 

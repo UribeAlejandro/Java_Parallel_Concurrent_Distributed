@@ -1,4 +1,4 @@
-package par_conc_dis.sequential;
+package parallel.concurrent.distributed.sequential;
 
 
 public class ArraySum {

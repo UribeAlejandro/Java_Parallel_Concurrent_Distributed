@@ -1,4 +1,4 @@
-package par_conc_dis.utils;
+package parallel.concurrent.distributed.utils;
 
 import java.util.Random;
 
@@ -10,8 +10,8 @@ public class Helpers {
 
   public static Student[] generateStudentData() {
     final int REPEATS = 10;
-    final int N_STUDENTS = 2000000;
-    final int N_CURRENT_STUDENTS = 600000;
+    final int N_STUDENTS = REPEATS * 2000000;
+    final int N_CURRENT_STUDENTS = REPEATS * 600000;
     final String[] firstNames = {"Sanjay", "Yunming", "John", "Vivek", "Shams", "Max"};
     final String[] lastNames = {"Chatterjee", "Zhang", "Smith", "Sarkar", "Imam", "Grossman"};
 

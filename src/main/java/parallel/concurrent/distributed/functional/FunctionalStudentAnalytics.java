@@ -1,9 +1,9 @@
-package par_conc_dis.functional;
+package parallel.concurrent.distributed.functional;
 
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import par_conc_dis.utils.Student;
+import parallel.concurrent.distributed.utils.Student;
 
 
 public final class FunctionalStudentAnalytics {
